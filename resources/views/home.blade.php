@@ -37,7 +37,7 @@
                             @forelse($alarmer as $alarm)
                             <tr>
                                 <td>{{ date('M d', strtotime($alarm->date)) }}</td>
-                                <td>{{ $alarm->city }}, {{ realCountry($alarm->country) }}</td>
+                                <td>{{ $alarm->city }}, {{ $alarm->country }}</td>
                                 <td>{{ $alarm->type }}</td>
                                 <td>{{ $alarm->time }}</td>
                                 <td>
@@ -94,7 +94,7 @@
                         <div class="card-body">
                         <div class="my-3" style="display: flex; justify-content: space-between; align-items: center;">
                             <h2>
-                                {{ $location['name'] }}, {{ realCountry($location['country']) }}
+                                {{ $location['name'] }}, {{ $location['country'] }}
                             </h2>
                             <div>
                                 <table class="table" width="30%">
@@ -105,7 +105,7 @@
                                     @forelse($alarms as $alarm)
                                     <tr>
                                         <td>{{ $alarm->type }}</td>
-                                        {{-- <td>{{ $alar->time }}</td> --}}
+                                        <td>{{ $alarm->time }}</td>
                                     </tr>
                                     @empty
                                         <tr class="text-center">
